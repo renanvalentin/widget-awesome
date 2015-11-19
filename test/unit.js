@@ -1,16 +1,21 @@
-var LikeButton = require('../jsx/LikeButton.jsx')
-var React = require('react/addons')
+var React = require('react')
+var ReactDOM = require('react-dom')
+var TestUtils = require('react-addons-test-utils')
+
+const LikeButton = require('../jsx/LikeButton.jsx')
 
 var test = require('tape')
 
-var ReactTestUtils = React.addons.ReactTestUtils
-
-test('Like Button Constructor', function (t) {
-  var likeButton = React.createFactory(LikeButton)
-  ReactTestUtils.renderIntoDocument(likeButton)
-
+test('Like Button Constructor', (t) => {
   t.plan(1)
 
-  t.notOk(true)
+  var likeButton = TestUtils.renderIntoDocument(
+    <LikeButton />
+  );
+
+  var likeButtonNode = ReactDOM.findDOMNode(likeButton);
+
+  t.equal(likeButtonNode.textContent, 'like')
+
   t.end()
 })

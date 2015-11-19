@@ -16,7 +16,7 @@ module.exports = React.createClass({
   render: function () {
     const label = this.getLabel()
     return (
-      <button className='LikeButton' onClick={this.like}>
+      <button className='LikeButton' onClick={this.like} ref='button'>
         {label}
       </button>
     )
