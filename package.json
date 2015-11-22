@@ -36,7 +36,7 @@
     ]
   },
   "scripts": {
-    "test": "browserify test/unit.js | testling -u",
+    "test": "standard && browserify test/unit.js | testling -u",
     "start": "node bin/cli",
     "build-js": "browserify -e --standalone widget-awesome ./lib/browser.js | uglifyjs - > static/bundle.js",
     "build-css": "lessc src/style/widget.less > static/bundle.css",
